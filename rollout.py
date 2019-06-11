@@ -98,8 +98,11 @@ class ROLLOUT(object):
             else:
                 # completed sentence reward
                 rewards[self.sequence_length - 1] += ypred
-
+        print "Reward Array: ",rewards
         rewards = np.transpose(np.array(rewards)) / (1.0 * rollout_num)  # batch_size x seq_length
+        print "Reward after transformation: ",rewards
+        print ""
+        print ""
         return rewards
 
     def create_recurrent_unit(self):
